@@ -1,0 +1,14 @@
+version: '3.9'
+services:
+  jenkins:
+    build: .
+    privileged: true
+    user: root
+    ports:
+      - 8090:8080
+      - 50000:50000
+    container_name: jenkins
+    volumes:
+      - ~/Programs/jenkins/jenkins_install:/root/.jenkins
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /usr/local/bin/docker:/usr/local/bin/docker
